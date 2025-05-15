@@ -1,54 +1,49 @@
-# React + TypeScript + Vite
+# 🚀 Виртуализация и блокировка рендеринга — демонстрация производительности
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот проект демонстрирует два ключевых аспекта оптимизации загрузки на фронтенде:
 
-Currently, two official plugins are available:
+- ⚡ **Виртуализация списков в React** с помощью `react-window`
+- 🧱 **Блокировка рендеринга** в обычной HTML-странице из-за тяжёлого JavaScript
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 📂 Состав проекта
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- `src/components/VirtualList.tsx` — виртуализированный список
+- `src/components/RegularList.tsx` — обычный список (без оптимизаций)
+- `src/utils/generateItems.ts` — генерация мок-данных с картинками
+- `public/blocking-example.html` — демонстрация блокирующего JavaScript
+- `App.tsx` — переключатель между виртуальным и обычным списком
+- `App.styles.ts` — стилизация через styled-components
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🖥 Как запустить
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm install
+npm run dev
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 🧪 Блокировка рендеринга
+
+Чтобы посмотреть, как тяжелый JavaScript может **блокировать отображение страницы**, открой:
+
+- [Блокирующий скрипт](public/blocking-example.html)
+- [Неблокирующий скрипт](public/non-blocking-example.html)
+- [Сравнение с кнопками](public/blocking-toggle.html)
+
+В первом случае ты увидишь "зависание" → это демонстрирует, **почему важно использовать `defer` или оптимизировать скрипты**.
+
+📦 Используемые технологии
+
+React + TypeScript
+
+Vite
+
+react-window
+
+styled-components
+
+faker.js (для генерации мок-данных)
+
+HTML + нативный JS (для демонстрации блокировки)

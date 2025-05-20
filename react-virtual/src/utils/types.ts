@@ -5,4 +5,4 @@ export type Item = {
   description: string;
 };
 
-export type Changer = 'virtual' | 'regular';
+export type Changer = 'virtual' | 'regular' | 'virtual-page';

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Неблокирующий JS</title>
+
+  <script defer>
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        console.log('Лёгкий defer-скрипт выполнен без блокировки');
+      }, 2000);
+    });
+  </script>
+
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Неблокирующий скрипт</h1>
+</body>
+</html>

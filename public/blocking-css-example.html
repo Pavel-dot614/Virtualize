@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Блокирующий CSS</title>
+
+  <link rel="stylesheet" href="slow-style.css" />
+
+  <script>
+    console.log('HTML парсится, но не рендерится, пока не загрузится CSS');
+  </script>
+</head>
+<body>
+  <h1>Контент с блокирующим CSS</h1>
+</body>
+</html>
